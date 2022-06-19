@@ -26,6 +26,7 @@ for k in dom.keys():
         n=n+1
 print(n)
 '''
+'''
 # Задача с конфетами
 import random
 
@@ -64,3 +65,89 @@ if 1 <= konfeti < 28:
  print("Вы выиграли!")
 if konfeti == 0:
  print("Вы проиграли...")
+''' 
+# 2. Создайте программу для игры в "Крестики-нолики".
+import pprint
+A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+A[0][0] == 1, A[0][1] == 2, A[0][2] == 3
+A[1][0] == 4, A[1][1] == 5, A[1][2] == 6
+
+for i in range(len(A)):
+     for j in range(len(A[i])):
+         print(A[i][j], end=' ')
+     print()
+     z = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+pobeda = [[0, 1, 2],
+         [3, 4, 5],
+         [6, 7, 8],
+         [0, 3, 6],
+         [1, 4, 7],
+         [2, 5, 8],
+         [0, 4, 8],
+         [2, 4, 6]]
+
+win = ""
+
+ # Основная программа
+okonchanie = False
+igra = True
+
+while okonchanie == False:
+    print('Введите число,соответствующее месту,куда вы хотите сделать ход')
+    s = int(input())
+
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            if A[i][j] == s:
+                A[i][j] = "O"
+            print(A[i][j], end=' ')
+        print()
+
+    for k in range(0,3):
+        if A[k][0] == "X" and A[k][1] == "X" and A[k][2] == "X":
+            win = "X"
+        if A[k][0] == "O" and A[k][1] == "O" and A[k][2] == "O":
+            win = "O"
+        if A[0][0] == "X" and A[1][1] == "X" and A[2][2] == "X":
+            win = "X"
+        if A[0][0] == "O" and A[1][1] == "O" and A[2][2] == "O":
+            win = "O"
+
+        if A[0][2] == "X" and A[1][1] == "X" and A[2][0] == "X":
+            win = "X"
+        if A[0][2] == "O" and A[1][1] == "O" and A[2][0] == "O":
+            win = "O"
+
+    if win != "":
+        # game_over = True
+        print("Победил", win)
+        break
+    if win == "":
+        game_over = False
+
+
+        symbol = "O"
+        step = int(input("Ход 2 игрока: "))
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                if A[i][j] == step:
+                    A[i][j] = "X"
+                print(A[i][j], end=' ')
+            print()
+        for k in range(0,3):
+            if A[k][0] == "X" and A[k][1] == "X" and A[k][2] == "X":
+                win = "X"
+            if A[k][0] == "O" and A[k][1] == "O" and A[k][2] == "O":
+                win = "O"
+    if win != "":
+        game_over = True
+        print("Победил", win)
+        break
+    if win == "":
+        game_over = False
+
+
+
