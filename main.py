@@ -1,32 +1,4 @@
-#В доме живет N жильцов. Однажды решили провести перепись всех жильцов
- #данного дома и составили список, в котором указали возраст и пол каждого жильца.
- #Требуется найти номер самого старшего жителя мужского пола.
-'''
-dom = {25:1,23:0,55:1,30:0}
-print(dom)
-new_dom = list(dom)
-print(new_dom)
-a = max(dom)
-print(a)
-b = dom.get(a)
-print(b)
 
-list = (sorted(dom.items()))
-x = len(list)
-print(list)
-for i in range(x-1,-1,-1):
-    if list[i][1] == 1:
-        age = list[i][0]
-        break
-
-n = 0
-print("age",age)
-for k in dom.keys():
-    if k != age:
-        n=n+1
-print(n)
-'''
-'''
 # Задача с конфетами
 import random
 
@@ -65,7 +37,7 @@ if 1 <= konfeti < 28:
  print("Вы выиграли!")
 if konfeti == 0:
  print("Вы проиграли...")
-''' 
+
 # 2. Создайте программу для игры в "Крестики-нолики".
 import pprint
 A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -150,4 +122,34 @@ while okonchanie == False:
         game_over = False
 
 
+# Напишите программу, удаляющую из текста все слова, содержащие "абв".
 
+my_text = 'Напишите абв напиабв програбвмму программу, удаляющую из \
+    этого абв текста все вабвс слова, содерабващие содержащие "абв"'
+
+itog = list(map(lambda x: x.replace("абв",""), my_text.split()))
+
+print (itog)
+
+new = list(filter(lambda x:'абв' not in x, my_text.split()))
+print(new)
+
+
+#Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
+print("Введите текст,который необходимо сжать: ")
+l = list(input())
+print(l)
+t = set(l)
+print(t)
+y = {}
+for i in t:
+  c = l.count(i)
+  y[i] = c
+
+print(y)
+
+itog = " "
+for key,value in y.items():
+    itog = itog + (key * value)
+
+print(itog)
